@@ -10,6 +10,12 @@ public class AllRegexes
 
     public boolean regexValidator(String regex, String value)
     {
+        if ( value == null ){
+            throw new UserValueExceptions("Value is invalid " + UserValueErrors.NULL);
+        }
+        if ( value.equals("") ){
+            throw new UserValueExceptions("Value is invalid " + UserValueErrors.EMPTY_STRING);
+        }
         return Pattern.matches(regex,value);
     }
 

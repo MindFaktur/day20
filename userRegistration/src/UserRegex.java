@@ -31,13 +31,20 @@ public class UserRegex
 
     private void printsValidOrInvalid(boolean val, String name, String userField)
     {
-        if ( val )
+        try
         {
-            System.out.println(userField + " " + name + " is Valid ");
-        }else
+            if ( val )
+            {
+                System.out.println(userField + " " + name + " is Valid ");
+            }else
+            {
+                System.out.println(userField + " " + name + " is Invalid ");
+            }
+        }catch (UserValueExceptions e)
         {
-            System.out.println(userField + " " + name + " is Invalid ");
+            System.out.println(e);
         }
+
     }
 
 }
